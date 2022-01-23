@@ -17,9 +17,13 @@ int main() {
 	//	let's first create the file if it doesn't exist
 
 	ofstream myFile;
+	string theFilename = "";
 	char checkYes = 'n';
 
-	myFile.open("data.txt", ios::app);
+	cout << "enter a filename that we can use...";
+	cin >> theFilename;
+
+	myFile.open(theFilename, ios::app);
 	if (myFile.fail()) {
 		cout << "\t***File I/O Error....." << endl;
 		exit(1);
@@ -39,7 +43,7 @@ int main() {
 
 	if (checkYes == 'y') {
 		//	let's append more data to the file
-		myFile.open("data.txt", ios::app);
+		myFile.open(theFilename, ios::app);
 		if (myFile.fail()) {
 			cout << "\t***File I/O Error....." << endl;
 			exit(1);
